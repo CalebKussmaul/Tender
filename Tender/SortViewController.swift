@@ -28,7 +28,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   @IBOutlet var statusLabel: NSTextField!
   
   
-  let dfmt = DateFormatter()
+  let dfmt = DateFormatter() //ISO8601DateFormatter()
   let previewOpts:CFDictionary = [kQLThumbnailOptionScaleFactorKey as String: 1,
                                   kQLThumbnailOptionIconModeKey as String: true] as CFDictionary
   
@@ -76,6 +76,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   
   @IBAction func onEditTags(_ sender: NSTokenField) {
+    print("set tags")
     do {
       try state.setFinderTags(tags: sender.objectValue as! [String])
     } catch {
@@ -112,7 +113,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   @IBAction func onKeep(_ sender: NSButton) {
     saveChanges()
     next(oldFile: state.accept())
-    refresh(reverse:false)
+    refresh(reverse:true)
     
     undoManager?.setActionName("keep file")
     undoManager?.registerUndo(withTarget: self, handler: { me in
@@ -122,7 +123,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   
   func undoKeep(sender: NSButton) {
     state.undoAccept()
-    refresh(reverse:true)
+    refresh(reverse:false)
     
     undoManager?.setActionName("keep file")
     undoManager?.registerUndo(withTarget: self, handler: { me in
@@ -242,7 +243,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   
   func saveChanges() {
-    onEditTags(tagField)
+    //onEditTags(tagField) //disabled because warning may show for no reason
     onRename(filenameField)
   }
   
@@ -301,10 +302,21 @@ class SortViewController: NSViewController, NSWindowDelegate {
     let keys: Set<URLResourceKey> = [.tagNamesKey, .creationDateKey, .contentModificationDateKey, .nameKey, .fileSizeKey, .isDirectoryKey]
     
     if let resourceValues:URLResourceValues = try? file.resourceValues(forKeys: keys) {
-      do {
-        try filesizeField.stringValue = file.fileSize().byteCount(style: .file)
-      } catch {
-        filesizeField.stringValue = "?"
+      if file.hasDirectoryPath {
+        self.filesizeField.stringValue = "--"
+        DispatchQueue.main.async {
+          do {
+            try self.filesizeField.stringValue = file.fileSize().byteCount(style: .file)
+          } catch {
+            self.filesizeField.stringValue = "?"
+          }
+        }
+      } else {
+        do {
+          try filesizeField.stringValue = file.fileSize().byteCount(style: .file)
+        } catch {
+          filesizeField.stringValue = "?"
+        }
       }
       let created = resourceValues.creationDate
       createdField.stringValue = dfmt.string(from: created!)

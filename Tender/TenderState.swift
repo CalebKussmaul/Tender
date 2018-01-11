@@ -97,12 +97,12 @@ class TenderState {
       case .Name:
           comp = a.lastPathComponent < b.lastPathComponent
       case .Created:
-        if let (aVals, bVals) = try? (a.resourceValues(forKeys: [.creationDateKey]), a.resourceValues(forKeys: [.creationDateKey])) {
-          return aVals.creationDate! < bVals.creationDate!
+        if let (aVals, bVals) = try? (a.resourceValues(forKeys: [.creationDateKey]), b.resourceValues(forKeys: [.creationDateKey])) {
+          return aVals.creationDate! > bVals.creationDate!
         }
       case .Modified:
-        if let (aVals, bVals) = try? (a.resourceValues(forKeys: [.contentModificationDateKey]), a.resourceValues(forKeys: [.contentModificationDateKey])) {
-          comp = aVals.contentModificationDate! < bVals.contentModificationDate!
+        if let (aVals, bVals) = try? (a.resourceValues(forKeys: [.contentModificationDateKey]), b.resourceValues(forKeys: [.contentModificationDateKey])) {
+          comp = aVals.contentModificationDate! > bVals.contentModificationDate!
         }
       }
       return (descending ? !comp: comp)
