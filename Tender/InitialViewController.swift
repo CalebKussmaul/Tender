@@ -10,7 +10,7 @@ import AppKit
 
 class InitialViewController: NSViewController, NSWindowDelegate {
   
-  var state:TenderState?
+  var state:TenderState!
   
   let appDelegate = NSApplication.shared().delegate as! AppDelegate
   
@@ -29,8 +29,20 @@ class InitialViewController: NSViewController, NSWindowDelegate {
     do {
       try state = TenderState(dir: url)
       startButton.isEnabled = true
+    } catch StateError.EmptyDir {
+      let alert = NSAlert()
+      alert.messageText = "Folder cannot be empty"
+      alert.informativeText = "Tender has nothing to sort in an empty folder. Please select another directory."
+      alert.alertStyle = NSAlertStyle.warning
+      alert.addButton(withTitle: "Okay")
+      alert.beginSheetModal(for: self.view.window!, completionHandler: {(response) in })
     } catch {
-      
+      let alert = NSAlert()
+      alert.messageText = "Error reading folder"
+      alert.informativeText = "Something went wrong parsing files in the given directory. Please check your permissions."
+      alert.alertStyle = NSAlertStyle.warning
+      alert.addButton(withTitle: "Okay")
+      alert.beginSheetModal(for: self.view.window!, completionHandler: {(response) in })
     }
   }
   
@@ -45,12 +57,12 @@ class InitialViewController: NSViewController, NSWindowDelegate {
   }
   
   @IBAction func onStart(_ sender: NSButton) {
-    let wc = appDelegate.storyboard!.instantiateController(withIdentifier: "sortWindow") as! NSWindowController
+    let wc = storyboard!.instantiateController(withIdentifier: "sortWindow") as! NSWindowController
     let vc = wc.contentViewController! as! SortViewController
-    state?.promptRestore(window: view.window!, onCompletion: {() in
-      self.state?.sortFiles(sortBy: self.getSortBy(), groupByType: self.groupByFiletypeCheckBox.state == 1, descending: self.descendingCheckBox.state == 1)
+    state.promptRestore(window: view.window!, onCompletion: {() in
+      self.state.sortFiles(sortBy: self.getSortBy(), groupByType: self.groupByFiletypeCheckBox.state == 1, descending: self.descendingCheckBox.state == 1)
       self.view.window?.close()
-      vc.setState(state: self.state!)
+      vc.setState(state: self.state)
       vc.view.window?.title = "Tender - " + self.pathControl.url!.lastPathComponent
       wc.showWindow(sender)
     })

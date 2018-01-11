@@ -10,7 +10,7 @@ import AppKit
 
 class DropView: NSView {
   
-  var onDrop:((URL) -> Void)? = nil
+  var onDrop:((URL) -> Void)?
   
   func setDropListener(ftn: @escaping ((URL) -> Void)) {
     onDrop = ftn

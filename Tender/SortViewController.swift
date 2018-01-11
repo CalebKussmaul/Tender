@@ -11,7 +11,7 @@ import QuickLook
 
 class SortViewController: NSViewController, NSWindowDelegate {
   
-  var state: TenderState?
+  var state: TenderState!
   
   let preloadCount = 16;
   var preloadedPreviews:Dictionary<URL,NSImage> = [:]
@@ -38,7 +38,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   
   func windowShouldClose(_ sender: Any) -> Bool {
-    state?.save()
+    state.save()
     NSApplication.shared().terminate(self)
     return true
   }
@@ -57,22 +57,40 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   
   func preloadImages() {
-    for i in 0..<min(state!.remaining(), self.preloadCount) {
-      preloadPreview(file: state!.unsorted[i], fast: false)
+    for i in 0..<min(state.remaining(), self.preloadCount) {
+      preloadPreview(file: state.unsorted[i], fast: false)
     }
   }
   
   @IBAction func onRename(_ sender: NSTextField) {
-    try? state?.rename(name: sender.stringValue)
+    do {
+      try state.rename(name: sender.stringValue)
+    } catch {
+      let alert = NSAlert()
+      alert.messageText = "Error renaming file"
+      alert.informativeText = "The file could not be renamed. Please check its permissions"
+      alert.alertStyle = NSAlertStyle.warning
+      alert.addButton(withTitle: "Okay")
+      alert.beginSheetModal(for: self.view.window!, completionHandler: {(response) in })
+    }
   }
   
   @IBAction func onEditTags(_ sender: NSTokenField) {
-    try? state?.setFinderTags(tags: sender.objectValue as! [String])
+    do {
+      try state.setFinderTags(tags: sender.objectValue as! [String])
+    } catch {
+      let alert = NSAlert()
+      alert.messageText = "Error changing file tags"
+      alert.informativeText = "The file's Finder tags could not be modified. Please check its permissions"
+      alert.alertStyle = NSAlertStyle.warning
+      alert.addButton(withTitle: "Okay")
+      alert.beginSheetModal(for: self.view.window!, completionHandler: {(response) in })
+    }
   }
   
   @IBAction func onReject(_ sender: NSButton) {
     saveChanges()
-    next(oldFile: state!.reject())
+    next(oldFile: state.reject())
     refresh(reverse:false)
     
     undoManager?.setActionName("reject file")
@@ -82,7 +100,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   
   func undoReject(sender: NSButton) {
-    state?.undoReject()
+    state.undoReject()
     refresh(reverse:true)
     
     undoManager?.setActionName("reject file")
@@ -93,7 +111,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   
   @IBAction func onKeep(_ sender: NSButton) {
     saveChanges()
-    next(oldFile: state!.accept())
+    next(oldFile: state.accept())
     refresh(reverse:false)
     
     undoManager?.setActionName("keep file")
@@ -103,7 +121,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   
   func undoKeep(sender: NSButton) {
-    state?.undoAccept()
+    state.undoAccept()
     refresh(reverse:true)
     
     undoManager?.setActionName("keep file")
@@ -117,7 +135,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   @IBAction func onMove(_ sender: NSButton) {
     let savePanel = NSSavePanel()
-    savePanel.nameFieldStringValue = state!.unsorted.first!.lastPathComponent
+    savePanel.nameFieldStringValue = state.unsorted.first!.lastPathComponent
     savePanel.beginSheetModal(for: view.window!, completionHandler: {(result) -> Void in
       if result == NSModalResponseOK {
         self.onMoveConfirm(to: savePanel.url!)
@@ -127,7 +145,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   
   func onMoveConfirm(to: URL) {
     do {
-      try state?.move(to: to)
+      try state.move(to: to)
       refresh(reverse: false)
     } catch {
       let alert = NSAlert()
@@ -139,16 +157,16 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   
   @IBAction func onOpen(_ sender: NSMenuItem) {
-    state?.open()
+    state.open()
   }
   
   @IBAction func onOpenInFinder(_ sender: NSMenuItem) {
-    state?.showInFinder()
+    state.showInFinder()
   }
   
 
   @IBAction func onRejectAll(_ sender: NSMenuItem) {
-    let (ofType, ext) = state!.rejectAllOfType()
+    let (ofType, ext) = state.rejectAllOfType()
     for url in ofType {
       preloadedPreviews[url] = nil
     }
@@ -162,7 +180,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   
   func undoRejectAll(_ sender: NSMenuItem, numRejected: Int, ext: String) {
-    state?.undoRejectAllOfType(numRejected: numRejected)
+    state.undoRejectAllOfType(numRejected: numRejected)
     preloadImages()
     undoManager?.setActionName("reject all .\(ext) files")
     undoManager?.registerUndo(withTarget: self, handler: { me in
@@ -177,7 +195,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   }
   
   func loadOneMorePreview() {
-    for f in state!.unsorted {
+    for f in state.unsorted {
       if(!self.preloadedPreviews.keys.contains(f) && !self.previewsBeingLoaded.contains(f)) {
         preloadPreview(file: f, fast: false)
         break
@@ -195,7 +213,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
       let img = self.filePreview(file: file)
       self.preloadedPreviews[file] = img
       self.previewsBeingLoaded.remove(file)
-      if(file == self.state!.unsorted.first!) {
+      if(file == self.state.unsorted.first!) {
         DispatchQueue.main.async {
           self.preview.transitionWithImage(image: img, reverse:false, notrans:true)
         }
@@ -230,7 +248,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   
   func finish() {
     
-    if state!.rejected.isEmpty {
+    if state.rejected.isEmpty {
       let alert = NSAlert()
       alert.messageText = "No files to delete"
       alert.informativeText = "You did not reject any files. Would you like to start over?"
@@ -239,10 +257,9 @@ class SortViewController: NSViewController, NSWindowDelegate {
       alert.addButton(withTitle: "Exit Tinder")
       alert.beginSheetModal(for: self.view.window!, completionHandler: {(response) in
         if response == NSAlertFirstButtonReturn {
-          if let wc = self.storyboard?.instantiateInitialController() as? NSWindowController {
-            self.view.window?.close()
-            wc.showWindow(self)
-          }
+          let wc = self.storyboard!.instantiateInitialController() as! NSWindowController
+          self.view.window?.close()
+          wc.showWindow(self)
         } else {
           NSApplication.shared().terminate(self)
         }
@@ -253,19 +270,19 @@ class SortViewController: NSViewController, NSWindowDelegate {
     
     if let wc = storyboard?.instantiateController(withIdentifier: "review") as? NSWindowController {
       if let rc = wc.contentViewController as? ReviewViewController {
-        rc.setState(state: state!)
+        rc.setState(state: state)
         wc.showWindow(self)
       }
     }
   }
   
   func refresh(reverse: Bool) {
-    if(state!.unsorted.count == 0) {
+    if(state.unsorted.count == 0) {
       finish()
       return
     }
     
-    let file = state!.unsorted.first!
+    let file = state.unsorted.first!
     let pathComponent = file.lastPathComponent
     filenameField.stringValue = pathComponent
 
@@ -298,8 +315,8 @@ class SortViewController: NSViewController, NSWindowDelegate {
       } else {
         tagField.objectValue = [String]()
       }
-      progressIndicator.doubleValue = state!.pctDone()
-      statusLabel.stringValue = "\(state!.rejected.count) rejected \(state!.accepted.count) accepted \(state!.unsorted.count) remaining"
+      progressIndicator.doubleValue = state.pctDone()
+      statusLabel.stringValue = "\(state.rejected.count) rejected \(state.accepted.count) accepted \(state.unsorted.count) remaining"
     }
   }
 }

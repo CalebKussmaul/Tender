@@ -10,24 +10,26 @@ import AppKit
 
 class ReviewViewController: NSViewController {
 
-  var state:TenderState!
+  var state: TenderState!
   
   @IBOutlet var titleField: NSTextField!
   
   func setState(state: TenderState) {
     self.state = state
-    titleField.stringValue = "\(state.rejected.count) files totalling \(state.rejectedSize()) are ready to be deleted"
+    titleField.stringValue = "\(state.rejected.count) files totaling \(state.rejectedSize()) are ready to be deleted"
   }
 
   @IBAction func deleteRejected(_ sender: Any) {
-    self.view.window?.close()
+    let wc = self.storyboard!.instantiateInitialController() as! NSWindowController
+    view.window?.close()
+    wc.showWindow(self)
     state.finishDeleteFiles()
-    exit(0)
   }
   
   @IBAction func moveRejected(_ sender: Any) {
-    self.view.window?.close()
+    let wc = self.storyboard!.instantiateInitialController() as! NSWindowController
+    view.window?.close()
+    wc.showWindow(self)
     state.finishMoveFiles()
-    exit(0)
   }
 }

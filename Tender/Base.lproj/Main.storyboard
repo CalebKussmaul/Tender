@@ -1042,11 +1042,11 @@ DQ
             <objects>
                 <viewController title="Review" showSeguePresentationStyle="single" id="aE5-ZP-wSl" customClass="ReviewViewController" customModule="Tender" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="o6b-Al-Fcz">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="202"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="174"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9pL-tz-nj5">
-                                <rect key="frame" x="18" y="155" width="444" height="27"/>
+                                <rect key="frame" x="18" y="127" width="444" height="27"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0 files totalling 0kb are ready to be deleted" id="hrl-0N-vQF">
                                     <font key="font" size="19" name="ArialRoundedMTBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1054,22 +1054,19 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-Y4-R6W">
-                                <rect key="frame" x="38" y="75" width="404" height="72"/>
+                                <rect key="frame" x="38" y="83" width="404" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="BS0-1g-WND"/>
                                     <constraint firstAttribute="width" constant="400" id="fhn-lN-xjo"/>
                                 </constraints>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="y7c-Xk-RKv">
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Would you like to delete them immediately (cannot undo) or move them to a new folder and have another look?" id="y7c-Xk-RKv">
                                     <font key="font" size="12" name="ArialRoundedMTBold"/>
-                                    <string key="title">Would you like to delete them immediately (cannot undo) or move them to a new folder and have another look?
-
-Tender will exit when finished</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="klq-rC-5PM">
-                                <rect key="frame" x="34" y="13" width="197" height="32"/>
+                                <rect key="frame" x="34" y="21" width="197" height="32"/>
                                 <buttonCell key="cell" type="push" title="Delete rejected files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DUK-OJ-Nb6">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1079,7 +1076,7 @@ Tender will exit when finished</string>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X2O-bY-KbB">
-                                <rect key="frame" x="249" y="13" width="197" height="32"/>
+                                <rect key="frame" x="249" y="21" width="197" height="32"/>
                                 <buttonCell key="cell" type="push" title="View files in new folder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8DO-AT-K7T">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -1113,7 +1110,7 @@ DQ
                 </viewController>
                 <customObject id="D1Z-ID-5Me" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="506" y="1882"/>
+            <point key="canvasLocation" x="506" y="1868"/>
         </scene>
     </scenes>
     <resources>
