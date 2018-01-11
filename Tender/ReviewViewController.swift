@@ -8,7 +8,7 @@
 
 import AppKit
 
-class ReviewViewController: NSViewController {
+class ReviewViewController: NSViewController, NSWindowDelegate {
 
   var state: TenderState!
   
@@ -16,7 +16,7 @@ class ReviewViewController: NSViewController {
   
   func setState(state: TenderState) {
     self.state = state
-    titleField.stringValue = "\(state.rejected.count) files totaling \(state.rejectedSize()) are ready to be deleted"
+    titleField.stringValue = "\(state.rejected.count) files totaling \(state.rejectedSize().byteCount(style: .file)) are ready to be deleted"
   }
 
   @IBAction func deleteRejected(_ sender: Any) {
@@ -31,5 +31,15 @@ class ReviewViewController: NSViewController {
     view.window?.close()
     wc.showWindow(self)
     state.finishMoveFiles()
+  }
+  
+  override func viewDidAppear() {
+    super.viewDidAppear()
+    self.view.window!.delegate = self
+  }
+  
+  func windowShouldClose(_ sender: Any) -> Bool {
+    NSApplication.shared().terminate(self)
+    return true
   }
 }

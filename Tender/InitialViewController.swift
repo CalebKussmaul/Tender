@@ -69,12 +69,11 @@ class InitialViewController: NSViewController, NSWindowDelegate {
   }
   
   override func viewDidAppear() {
+    super.viewDidAppear()
     dropFileView.setDropListener(ftn: {(url: URL) -> Void in
       self.pathControl.url = url
       self.select(url)
     })
-    
-    super.viewDidAppear()
     self.view.window!.delegate = self
   }
   
