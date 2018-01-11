@@ -7,19 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		942C6FCC1FC239C10054A4CC /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942C6FCB1FC239C10054A4CC /* SortViewController.swift */; };
+		942DEB6D1FDDBC24001E9A90 /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942DEB6C1FDDBC24001E9A90 /* DropView.swift */; };
+		946934071FF3733100B60664 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946934061FF3733100B60664 /* ReviewViewController.swift */; };
 		948008CE1FB3B42B00DFD9CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948008CD1FB3B42B00DFD9CD /* AppDelegate.swift */; };
-		948008D01FB3B42B00DFD9CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948008CF1FB3B42B00DFD9CD /* ViewController.swift */; };
+		948008D01FB3B42B00DFD9CD /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948008CF1FB3B42B00DFD9CD /* InitialViewController.swift */; };
 		948008D21FB3B42B00DFD9CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 948008D11FB3B42B00DFD9CD /* Assets.xcassets */; };
 		948008D51FB3B42B00DFD9CD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948008D31FB3B42B00DFD9CD /* Main.storyboard */; };
+		948008DE1FB3B65800DFD9CD /* resources.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 948008DD1FB3B65800DFD9CD /* resources.xcassets */; };
+		9491B44220066FC300D5F2E4 /* TenderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9491B44120066FC300D5F2E4 /* TenderState.swift */; };
+		949443EB20068CD300318E29 /* SortBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949443EA20068CD300318E29 /* SortBy.swift */; };
+		949443ED2006A1E400318E29 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 949443EC2006A1E400318E29 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		942C6FCB1FC239C10054A4CC /* SortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
+		942DEB6C1FDDBC24001E9A90 /* DropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
+		943CDBA41FB8E6E5006116E6 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = System/Library/Frameworks/Automator.framework; sourceTree = SDKROOT; };
+		943CDBA61FB95D1E006116E6 /* Tender.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Tender.entitlements; sourceTree = "<group>"; };
+		946934061FF3733100B60664 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		948008CA1FB3B42B00DFD9CD /* Tender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		948008CD1FB3B42B00DFD9CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		948008CF1FB3B42B00DFD9CD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		948008CF1FB3B42B00DFD9CD /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		948008D11FB3B42B00DFD9CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		948008D41FB3B42B00DFD9CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		948008D61FB3B42B00DFD9CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		948008DD1FB3B65800DFD9CD /* resources.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = resources.xcassets; sourceTree = "<group>"; };
+		9491B44120066FC300D5F2E4 /* TenderState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenderState.swift; sourceTree = "<group>"; };
+		949443EA20068CD300318E29 /* SortBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortBy.swift; sourceTree = "<group>"; };
+		949443EC2006A1E400318E29 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,11 +49,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		943CDBA31FB8E6E5006116E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				943CDBA41FB8E6E5006116E6 /* Automator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		948008C11FB3B42B00DFD9CD = {
 			isa = PBXGroup;
 			children = (
 				948008CC1FB3B42B00DFD9CD /* Tender */,
 				948008CB1FB3B42B00DFD9CD /* Products */,
+				943CDBA31FB8E6E5006116E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -52,13 +77,29 @@
 		948008CC1FB3B42B00DFD9CD /* Tender */ = {
 			isa = PBXGroup;
 			children = (
+				943CDBA61FB95D1E006116E6 /* Tender.entitlements */,
+				948008D61FB3B42B00DFD9CD /* Info.plist */,
 				948008CD1FB3B42B00DFD9CD /* AppDelegate.swift */,
-				948008CF1FB3B42B00DFD9CD /* ViewController.swift */,
+				942DEB6C1FDDBC24001E9A90 /* DropView.swift */,
+				949443EC2006A1E400318E29 /* Extensions.swift */,
+				948008CF1FB3B42B00DFD9CD /* InitialViewController.swift */,
+				946934061FF3733100B60664 /* ReviewViewController.swift */,
+				949443EA20068CD300318E29 /* SortBy.swift */,
+				942C6FCB1FC239C10054A4CC /* SortViewController.swift */,
+				9491B44120066FC300D5F2E4 /* TenderState.swift */,
 				948008D11FB3B42B00DFD9CD /* Assets.xcassets */,
 				948008D31FB3B42B00DFD9CD /* Main.storyboard */,
-				948008D61FB3B42B00DFD9CD /* Info.plist */,
+				948008DC1FB3B64200DFD9CD /* resources */,
 			);
 			path = Tender;
+			sourceTree = "<group>";
+		};
+		948008DC1FB3B64200DFD9CD /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				948008DD1FB3B65800DFD9CD /* resources.xcassets */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,13 +129,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Caleb Kussmaul";
 				TargetAttributes = {
 					948008C91FB3B42B00DFD9CD = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = XT83AZVF5M;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -121,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				948008DE1FB3B65800DFD9CD /* resources.xcassets in Resources */,
 				948008D21FB3B42B00DFD9CD /* Assets.xcassets in Resources */,
 				948008D51FB3B42B00DFD9CD /* Main.storyboard in Resources */,
 			);
@@ -133,8 +180,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				948008D01FB3B42B00DFD9CD /* ViewController.swift in Sources */,
+				948008D01FB3B42B00DFD9CD /* InitialViewController.swift in Sources */,
+				9491B44220066FC300D5F2E4 /* TenderState.swift in Sources */,
+				942DEB6D1FDDBC24001E9A90 /* DropView.swift in Sources */,
+				949443ED2006A1E400318E29 /* Extensions.swift in Sources */,
+				946934071FF3733100B60664 /* ReviewViewController.swift in Sources */,
 				948008CE1FB3B42B00DFD9CD /* AppDelegate.swift in Sources */,
+				942C6FCC1FC239C10054A4CC /* SortViewController.swift in Sources */,
+				949443EB20068CD300318E29 /* SortBy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,7 +214,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -169,7 +224,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -210,7 +270,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -218,7 +280,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -246,11 +313,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tender/Tender.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XT83AZVF5M;
 				INFOPLIST_FILE = Tender/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.kussmaul.Tender;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kussmaul.tender;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -260,11 +330,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Tender/Tender.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = XT83AZVF5M;
 				INFOPLIST_FILE = Tender/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.kussmaul.Tender;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				PRODUCT_BUNDLE_IDENTIFIER = net.kussmaul.tender;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -289,6 +362,7 @@
 				948008DB1FB3B42B00DFD9CD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

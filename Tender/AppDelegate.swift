@@ -6,15 +6,15 @@
 //  Copyright © 2017 Caleb Kussmaul. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+  var storyboard: NSStoryboard? = nil
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    // Insert code here to initialize your application
+    storyboard = NSStoryboard(name: "Main", bundle: nil)
   }
 
   func applicationWillTerminate(_ aNotification: Notification) {

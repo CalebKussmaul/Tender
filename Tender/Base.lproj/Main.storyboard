@@ -1,7 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="S6J-nG-3ob">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -87,33 +90,6 @@
                                                 <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
-                                            <connections>
-                                                <action selector="saveDocument:" target="Ady-hI-5gd" id="teZ-XB-qJY"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Save As…" keyEquivalent="S" id="Bw7-FT-i3A">
-                                            <connections>
-                                                <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="mDf-zr-I0C"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Revert to Saved" keyEquivalent="r" id="KaW-ft-85H">
-                                            <connections>
-                                                <action selector="revertDocumentToSaved:" target="Ady-hI-5gd" id="iJ3-Pv-kwq"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                                        <menuItem title="Page Setup…" keyEquivalent="P" id="qIS-W8-SiK">
-                                            <modifierMask key="keyEquivalentModifierMask" shift="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="runPageLayout:" target="Ady-hI-5gd" id="Din-rz-gC5"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
-                                            <connections>
-                                                <action selector="print:" target="Ady-hI-5gd" id="qaZ-4w-aoO"/>
-                                            </connections>
-                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -147,12 +123,6 @@
                                                 <action selector="paste:" target="Ady-hI-5gd" id="UvS-8e-Qdg"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Paste and Match Style" keyEquivalent="V" id="WeT-3V-zwk">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                            <connections>
-                                                <action selector="pasteAsPlainText:" target="Ady-hI-5gd" id="cEh-KX-wJQ"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem title="Delete" id="pa3-QI-u2k">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -163,417 +133,6 @@
                                             <connections>
                                                 <action selector="selectAll:" target="Ady-hI-5gd" id="VNm-Mi-diN"/>
                                             </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="uyl-h8-XO2"/>
-                                        <menuItem title="Find" id="4EN-yA-p0u">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Find" id="1b7-l0-nxx">
-                                                <items>
-                                                    <menuItem title="Find…" tag="1" keyEquivalent="f" id="Xz5-n4-O0W">
-                                                        <connections>
-                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="cD7-Qs-BN4"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="YEy-JH-Tfz">
-                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                                        <connections>
-                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="WD3-Gg-5AJ"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Find Next" tag="2" keyEquivalent="g" id="q09-fT-Sye">
-                                                        <connections>
-                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="NDo-RZ-v9R"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="OwM-mh-QMV">
-                                                        <connections>
-                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="HOh-sY-3ay"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="buJ-ug-pKt">
-                                                        <connections>
-                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="U76-nv-p5D"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Jump to Selection" keyEquivalent="j" id="S0p-oC-mLd">
-                                                        <connections>
-                                                            <action selector="centerSelectionInVisibleArea:" target="Ady-hI-5gd" id="IOG-6D-g5B"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem title="Spelling and Grammar" id="Dv1-io-Yv7">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Spelling" id="3IN-sU-3Bg">
-                                                <items>
-                                                    <menuItem title="Show Spelling and Grammar" keyEquivalent=":" id="HFo-cy-zxI">
-                                                        <connections>
-                                                            <action selector="showGuessPanel:" target="Ady-hI-5gd" id="vFj-Ks-hy3"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Check Document Now" keyEquivalent=";" id="hz2-CU-CR7">
-                                                        <connections>
-                                                            <action selector="checkSpelling:" target="Ady-hI-5gd" id="fz7-VC-reM"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="bNw-od-mp5"/>
-                                                    <menuItem title="Check Spelling While Typing" id="rbD-Rh-wIN">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleContinuousSpellChecking:" target="Ady-hI-5gd" id="7w6-Qz-0kB"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Check Grammar With Spelling" id="mK6-2p-4JG">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleGrammarChecking:" target="Ady-hI-5gd" id="muD-Qn-j4w"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Correct Spelling Automatically" id="78Y-hA-62v">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleAutomaticSpellingCorrection:" target="Ady-hI-5gd" id="2lM-Qi-WAP"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem title="Substitutions" id="9ic-FL-obx">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Substitutions" id="FeM-D8-WVr">
-                                                <items>
-                                                    <menuItem title="Show Substitutions" id="z6F-FW-3nz">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="orderFrontSubstitutionsPanel:" target="Ady-hI-5gd" id="oku-mr-iSq"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="gPx-C9-uUO"/>
-                                                    <menuItem title="Smart Copy/Paste" id="9yt-4B-nSM">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleSmartInsertDelete:" target="Ady-hI-5gd" id="3IJ-Se-DZD"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Smart Quotes" id="hQb-2v-fYv">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleAutomaticQuoteSubstitution:" target="Ady-hI-5gd" id="ptq-xd-QOA"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Smart Dashes" id="rgM-f4-ycn">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleAutomaticDashSubstitution:" target="Ady-hI-5gd" id="oCt-pO-9gS"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Smart Links" id="cwL-P1-jid">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleAutomaticLinkDetection:" target="Ady-hI-5gd" id="Gip-E3-Fov"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Data Detectors" id="tRr-pd-1PS">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleAutomaticDataDetection:" target="Ady-hI-5gd" id="R1I-Nq-Kbl"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Text Replacement" id="HFQ-gK-NFA">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleAutomaticTextReplacement:" target="Ady-hI-5gd" id="DvP-Fe-Py6"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem title="Transformations" id="2oI-Rn-ZJC">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Transformations" id="c8a-y6-VQd">
-                                                <items>
-                                                    <menuItem title="Make Upper Case" id="vmV-6d-7jI">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="uppercaseWord:" target="Ady-hI-5gd" id="sPh-Tk-edu"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Make Lower Case" id="d9M-CD-aMd">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="lowercaseWord:" target="Ady-hI-5gd" id="iUZ-b5-hil"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Capitalize" id="UEZ-Bs-lqG">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="capitalizeWord:" target="Ady-hI-5gd" id="26H-TL-nsh"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem title="Speech" id="xrE-MZ-jX0">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Speech" id="3rS-ZA-NoH">
-                                                <items>
-                                                    <menuItem title="Start Speaking" id="Ynk-f8-cLZ">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="startSpeaking:" target="Ady-hI-5gd" id="654-Ng-kyl"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Stop Speaking" id="Oyz-dy-DGm">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="stopSpeaking:" target="Ady-hI-5gd" id="dX8-6p-jy9"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                    </items>
-                                </menu>
-                            </menuItem>
-                            <menuItem title="Format" id="jxT-CU-nIS">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Format" id="GEO-Iw-cKr">
-                                    <items>
-                                        <menuItem title="Font" id="Gi5-1S-RQB">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Font" systemMenu="font" id="aXa-aM-Jaq">
-                                                <items>
-                                                    <menuItem title="Show Fonts" keyEquivalent="t" id="Q5e-8K-NDq"/>
-                                                    <menuItem title="Bold" tag="2" keyEquivalent="b" id="GB9-OM-e27"/>
-                                                    <menuItem title="Italic" tag="1" keyEquivalent="i" id="Vjx-xi-njq"/>
-                                                    <menuItem title="Underline" keyEquivalent="u" id="WRG-CD-K1S">
-                                                        <connections>
-                                                            <action selector="underline:" target="Ady-hI-5gd" id="FYS-2b-JAY"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="5gT-KC-WSO"/>
-                                                    <menuItem title="Bigger" tag="3" keyEquivalent="+" id="Ptp-SP-VEL"/>
-                                                    <menuItem title="Smaller" tag="4" keyEquivalent="-" id="i1d-Er-qST"/>
-                                                    <menuItem isSeparatorItem="YES" id="kx3-Dk-x3B"/>
-                                                    <menuItem title="Kern" id="jBQ-r6-VK2">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <menu key="submenu" title="Kern" id="tlD-Oa-oAM">
-                                                            <items>
-                                                                <menuItem title="Use Default" id="GUa-eO-cwY">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="useStandardKerning:" target="Ady-hI-5gd" id="6dk-9l-Ckg"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem title="Use None" id="cDB-IK-hbR">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="turnOffKerning:" target="Ady-hI-5gd" id="U8a-gz-Maa"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem title="Tighten" id="46P-cB-AYj">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="tightenKerning:" target="Ady-hI-5gd" id="hr7-Nz-8ro"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem title="Loosen" id="ogc-rX-tC1">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="loosenKerning:" target="Ady-hI-5gd" id="8i4-f9-FKE"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                            </items>
-                                                        </menu>
-                                                    </menuItem>
-                                                    <menuItem title="Ligatures" id="o6e-r0-MWq">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <menu key="submenu" title="Ligatures" id="w0m-vy-SC9">
-                                                            <items>
-                                                                <menuItem title="Use Default" id="agt-UL-0e3">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="useStandardLigatures:" target="Ady-hI-5gd" id="7uR-wd-Dx6"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem title="Use None" id="J7y-lM-qPV">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="turnOffLigatures:" target="Ady-hI-5gd" id="iX2-gA-Ilz"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem title="Use All" id="xQD-1f-W4t">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="useAllLigatures:" target="Ady-hI-5gd" id="KcB-kA-TuK"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                            </items>
-                                                        </menu>
-                                                    </menuItem>
-                                                    <menuItem title="Baseline" id="OaQ-X3-Vso">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <menu key="submenu" title="Baseline" id="ijk-EB-dga">
-                                                            <items>
-                                                                <menuItem title="Use Default" id="3Om-Ey-2VK">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="unscript:" target="Ady-hI-5gd" id="0vZ-95-Ywn"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem title="Superscript" id="Rqc-34-cIF">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="superscript:" target="Ady-hI-5gd" id="3qV-fo-wpU"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem title="Subscript" id="I0S-gh-46l">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="subscript:" target="Ady-hI-5gd" id="Q6W-4W-IGz"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem title="Raise" id="2h7-ER-AoG">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="raiseBaseline:" target="Ady-hI-5gd" id="4sk-31-7Q9"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem title="Lower" id="1tx-W0-xDw">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="lowerBaseline:" target="Ady-hI-5gd" id="OF1-bc-KW4"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                            </items>
-                                                        </menu>
-                                                    </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="Ndw-q3-faq"/>
-                                                    <menuItem title="Show Colors" keyEquivalent="C" id="bgn-CT-cEk">
-                                                        <connections>
-                                                            <action selector="orderFrontColorPanel:" target="Ady-hI-5gd" id="mSX-Xz-DV3"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="iMs-zA-UFJ"/>
-                                                    <menuItem title="Copy Style" keyEquivalent="c" id="5Vv-lz-BsD">
-                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                                        <connections>
-                                                            <action selector="copyFont:" target="Ady-hI-5gd" id="GJO-xA-L4q"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Paste Style" keyEquivalent="v" id="vKC-jM-MkH">
-                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
-                                                        <connections>
-                                                            <action selector="pasteFont:" target="Ady-hI-5gd" id="JfD-CL-leO"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem title="Text" id="Fal-I4-PZk">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="Text" id="d9c-me-L2H">
-                                                <items>
-                                                    <menuItem title="Align Left" keyEquivalent="{" id="ZM1-6Q-yy1">
-                                                        <connections>
-                                                            <action selector="alignLeft:" target="Ady-hI-5gd" id="zUv-R1-uAa"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Center" keyEquivalent="|" id="VIY-Ag-zcb">
-                                                        <connections>
-                                                            <action selector="alignCenter:" target="Ady-hI-5gd" id="spX-mk-kcS"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Justify" id="J5U-5w-g23">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="alignJustified:" target="Ady-hI-5gd" id="ljL-7U-jND"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Align Right" keyEquivalent="}" id="wb2-vD-lq4">
-                                                        <connections>
-                                                            <action selector="alignRight:" target="Ady-hI-5gd" id="r48-bG-YeY"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="4s2-GY-VfK"/>
-                                                    <menuItem title="Writing Direction" id="H1b-Si-o9J">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <menu key="submenu" title="Writing Direction" id="8mr-sm-Yjd">
-                                                            <items>
-                                                                <menuItem title="Paragraph" enabled="NO" id="ZvO-Gk-QUH">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                </menuItem>
-                                                                <menuItem id="YGs-j5-SAR">
-                                                                    <string key="title">	Default</string>
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="makeBaseWritingDirectionNatural:" target="Ady-hI-5gd" id="qtV-5e-UBP"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem id="Lbh-J2-qVU">
-                                                                    <string key="title">	Left to Right</string>
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="makeBaseWritingDirectionLeftToRight:" target="Ady-hI-5gd" id="S0X-9S-QSf"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem id="jFq-tB-4Kx">
-                                                                    <string key="title">	Right to Left</string>
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="makeBaseWritingDirectionRightToLeft:" target="Ady-hI-5gd" id="5fk-qB-AqJ"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem isSeparatorItem="YES" id="swp-gr-a21"/>
-                                                                <menuItem title="Selection" enabled="NO" id="cqv-fj-IhA">
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                </menuItem>
-                                                                <menuItem id="Nop-cj-93Q">
-                                                                    <string key="title">	Default</string>
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="makeTextWritingDirectionNatural:" target="Ady-hI-5gd" id="lPI-Se-ZHp"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem id="BgM-ve-c93">
-                                                                    <string key="title">	Left to Right</string>
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="makeTextWritingDirectionLeftToRight:" target="Ady-hI-5gd" id="caW-Bv-w94"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                                <menuItem id="RB4-Sm-HuC">
-                                                                    <string key="title">	Right to Left</string>
-                                                                    <modifierMask key="keyEquivalentModifierMask"/>
-                                                                    <connections>
-                                                                        <action selector="makeTextWritingDirectionRightToLeft:" target="Ady-hI-5gd" id="EXD-6r-ZUu"/>
-                                                                    </connections>
-                                                                </menuItem>
-                                                            </items>
-                                                        </menu>
-                                                    </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="fKy-g9-1gm"/>
-                                                    <menuItem title="Show Ruler" id="vLm-3I-IUL">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="toggleRuler:" target="Ady-hI-5gd" id="FOx-HJ-KwY"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Copy Ruler" keyEquivalent="c" id="MkV-Pr-PK5">
-                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                                        <connections>
-                                                            <action selector="copyRuler:" target="Ady-hI-5gd" id="71i-fW-3W2"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                    <menuItem title="Paste Ruler" keyEquivalent="v" id="LVM-kO-fVI">
-                                                        <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
-                                                        <connections>
-                                                            <action selector="pasteRuler:" target="Ady-hI-5gd" id="cSh-wd-qM2"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
                                         </menuItem>
                                     </items>
                                 </menu>
@@ -653,20 +212,194 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Tender" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="49" y="-114"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="b5C-PI-pxx">
+            <objects>
+                <windowController id="S6J-nG-3ob" sceneMemberID="viewController">
+                    <window key="window" identifier="mainWIndow" title="Tender" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="G4n-OB-kie">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+                        <connections>
+                            <outlet property="delegate" destination="S6J-nG-3ob" id="e4B-RT-NPc"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="5dX-i0-Kqv" kind="relationship" relationship="window.shadowedContentViewController" id="eHp-4F-HdC"/>
+                    </connections>
+                </windowController>
+                <customObject id="xR6-p7-FKm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-478" y="198"/>
+        </scene>
+        <!--Tender-->
+        <scene sceneID="65I-1i-xaY">
+            <objects>
+                <viewController title="Tender" storyboardIdentifier="startWindow" showSeguePresentationStyle="single" id="5dX-i0-Kqv" customClass="InitialViewController" customModule="Tender" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="3CV-cb-FLq">
+                        <rect key="frame" x="0.0" y="0.0" width="439" height="397"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="n62-8i-Vi6">
+                                <rect key="frame" x="20" y="20" width="399" height="307"/>
+                                <view key="contentView" id="XXM-eU-4yZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="399" height="307"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="HCM-cf-tCD">
+                                            <rect key="frame" x="124" y="243" width="257" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Group by filetype" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="uUQ-hk-nKI">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" size="12" name="ArialRoundedMTBold"/>
+                                            </buttonCell>
+                                        </button>
+                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Lw3-t4-ETo">
+                                            <rect key="frame" x="124" y="264" width="258" height="26"/>
+                                            <popUpButtonCell key="cell" type="push" title="Filename" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" refusesFirstResponder="YES" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="huC-pz-Vne" id="bez-cM-Dbd">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" size="12" name="ArialRoundedMTBold"/>
+                                                <menu key="menu" id="Thl-Pt-ozQ">
+                                                    <items>
+                                                        <menuItem title="Filename" state="on" id="huC-pz-Vne"/>
+                                                        <menuItem title="Date created" id="5F8-R0-zQQ"/>
+                                                        <menuItem title="Date modified" id="47j-ed-Tzd"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                        </popUpButton>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="O1t-WZ-Hdh">
+                                            <rect key="frame" x="3" y="268" width="105" height="19"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Rss-fP-T0x"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Order files by" id="2Lq-kb-kxn">
+                                                <font key="font" size="13" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uXG-is-OLU">
+                                            <rect key="frame" x="156" y="13" width="87" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="6wX-di-nvf"/>
+                                            </constraints>
+                                            <buttonCell key="cell" type="push" title="Go!" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cNw-vi-PNb">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                                <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="onStart:" target="5dX-i0-Kqv" id="jNY-N3-LN4"/>
+                                            </connections>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="1ZC-KD-spf">
+                                            <rect key="frame" x="124" y="223" width="257" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Descending order" bezelStyle="regularSquare" imagePosition="left" inset="2" id="QGi-L7-Agg">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" size="12" name="ArialRoundedMTBold"/>
+                                            </buttonCell>
+                                        </button>
+                                        <box boxType="secondary" title="Drop Folder Here" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="GPK-lQ-C5m">
+                                            <rect key="frame" x="17" y="53" width="365" height="134"/>
+                                            <view key="contentView" id="rNK-nG-WAY" customClass="DropView" customModule="Tender" customModuleProvider="target">
+                                                <rect key="frame" x="2" y="2" width="361" height="130"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <pathControl focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X12-1C-8mA">
+                                                        <rect key="frame" x="119" y="51" width="123" height="26"/>
+                                                        <pathCell key="cell" selectable="YES" editable="YES" focusRingType="none" alignment="left" placeholderString="Select folder..." pathStyle="popUp" id="h0h-0O-24R">
+                                                            <font key="font" size="12" name="ArialRoundedMTBold"/>
+                                                            <allowedTypes>
+                                                                <string>public.folder</string>
+                                                            </allowedTypes>
+                                                        </pathCell>
+                                                        <connections>
+                                                            <action selector="onSelect:" target="5dX-i0-Kqv" id="OWG-xm-fCh"/>
+                                                        </connections>
+                                                    </pathControl>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="X12-1C-8mA" firstAttribute="centerY" secondItem="rNK-nG-WAY" secondAttribute="centerY" id="d5u-6n-IOn"/>
+                                                    <constraint firstItem="X12-1C-8mA" firstAttribute="centerX" secondItem="rNK-nG-WAY" secondAttribute="centerX" id="h4S-1k-C3g"/>
+                                                </constraints>
+                                            </view>
+                                        </box>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="HCM-cf-tCD" firstAttribute="leading" secondItem="Lw3-t4-ETo" secondAttribute="leading" id="22p-5x-mXa"/>
+                                        <constraint firstItem="O1t-WZ-Hdh" firstAttribute="leading" secondItem="XXM-eU-4yZ" secondAttribute="leading" constant="5" id="6Bw-5A-wgx"/>
+                                        <constraint firstAttribute="trailing" secondItem="Lw3-t4-ETo" secondAttribute="trailing" constant="20" id="81W-NK-UNv"/>
+                                        <constraint firstItem="GPK-lQ-C5m" firstAttribute="leading" secondItem="XXM-eU-4yZ" secondAttribute="leading" constant="20" id="G3E-6s-w8y"/>
+                                        <constraint firstAttribute="bottom" secondItem="uXG-is-OLU" secondAttribute="bottom" constant="20" id="IwZ-eo-MyK"/>
+                                        <constraint firstItem="HCM-cf-tCD" firstAttribute="top" secondItem="Lw3-t4-ETo" secondAttribute="bottom" constant="8" id="Pac-0w-Pvf"/>
+                                        <constraint firstItem="HCM-cf-tCD" firstAttribute="trailing" secondItem="Lw3-t4-ETo" secondAttribute="trailing" id="Rsm-3E-dga"/>
+                                        <constraint firstItem="GPK-lQ-C5m" firstAttribute="top" secondItem="1ZC-KD-spf" secondAttribute="bottom" constant="40" id="WTO-ES-pH8"/>
+                                        <constraint firstItem="uXG-is-OLU" firstAttribute="top" secondItem="GPK-lQ-C5m" secondAttribute="bottom" constant="16" id="Zil-Mf-dCx"/>
+                                        <constraint firstItem="Lw3-t4-ETo" firstAttribute="leading" secondItem="O1t-WZ-Hdh" secondAttribute="trailing" constant="20" id="Zqv-lU-3GG"/>
+                                        <constraint firstItem="uXG-is-OLU" firstAttribute="centerX" secondItem="XXM-eU-4yZ" secondAttribute="centerX" id="aif-gp-k8m"/>
+                                        <constraint firstItem="1ZC-KD-spf" firstAttribute="top" secondItem="HCM-cf-tCD" secondAttribute="bottom" constant="6" id="ceh-bF-yGn"/>
+                                        <constraint firstItem="Lw3-t4-ETo" firstAttribute="centerY" secondItem="O1t-WZ-Hdh" secondAttribute="centerY" id="csF-xU-djI"/>
+                                        <constraint firstAttribute="trailing" secondItem="GPK-lQ-C5m" secondAttribute="trailing" constant="20" id="oGJ-YE-YL6"/>
+                                        <constraint firstItem="1ZC-KD-spf" firstAttribute="leading" secondItem="HCM-cf-tCD" secondAttribute="leading" id="sbg-0M-oOw"/>
+                                        <constraint firstItem="O1t-WZ-Hdh" firstAttribute="top" secondItem="XXM-eU-4yZ" secondAttribute="top" constant="20" id="si7-i3-lHf"/>
+                                        <constraint firstItem="1ZC-KD-spf" firstAttribute="trailing" secondItem="HCM-cf-tCD" secondAttribute="trailing" id="vXF-ZZ-WOf"/>
+                                        <constraint firstItem="Lw3-t4-ETo" firstAttribute="width" secondItem="O1t-WZ-Hdh" secondAttribute="width" multiplier="2.5" id="y1o-9c-NaY"/>
+                                    </constraints>
+                                </view>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nBQ-Xs-Mcs">
+                                <rect key="frame" x="18" y="335" width="403" height="42"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Tender" id="thE-z6-KFZ">
+                                    <font key="font" size="30" name="ArialRoundedMTBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="nBQ-Xs-Mcs" firstAttribute="leading" secondItem="n62-8i-Vi6" secondAttribute="leading" id="4Am-Kj-T7n"/>
+                            <constraint firstItem="n62-8i-Vi6" firstAttribute="top" secondItem="nBQ-Xs-Mcs" secondAttribute="bottom" constant="8" symbolic="YES" id="4ft-KA-6VS"/>
+                            <constraint firstItem="nBQ-Xs-Mcs" firstAttribute="trailing" secondItem="n62-8i-Vi6" secondAttribute="trailing" id="AHp-vT-xu9"/>
+                            <constraint firstItem="nBQ-Xs-Mcs" firstAttribute="top" secondItem="3CV-cb-FLq" secondAttribute="top" constant="20" symbolic="YES" id="RQQ-xi-mab"/>
+                            <constraint firstAttribute="bottom" secondItem="n62-8i-Vi6" secondAttribute="bottom" constant="20" id="Z5y-Rk-j7d"/>
+                            <constraint firstAttribute="trailing" secondItem="nBQ-Xs-Mcs" secondAttribute="trailing" constant="20" id="msN-UX-aIU"/>
+                            <constraint firstItem="nBQ-Xs-Mcs" firstAttribute="leading" secondItem="3CV-cb-FLq" secondAttribute="leading" constant="20" id="rVa-Fb-XlZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descendingCheckBox" destination="1ZC-KD-spf" id="Wd2-El-YCD"/>
+                        <outlet property="dropFileView" destination="rNK-nG-WAY" id="VWC-14-i0C"/>
+                        <outlet property="groupByFiletypeCheckBox" destination="HCM-cf-tCD" id="q6Y-Le-XeY"/>
+                        <outlet property="pathControl" destination="X12-1C-8mA" id="XzW-D8-arT"/>
+                        <outlet property="sortByPopUp" destination="Lw3-t4-ETo" id="aEN-vn-xZX"/>
+                        <outlet property="startButton" destination="uXG-is-OLU" id="zPi-hA-yv8"/>
+                    </connections>
+                </viewController>
+                <customObject id="0XO-dW-9no" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-478.5" y="727.5"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                <windowController storyboardIdentifier="sortWindow" id="B8D-0N-5wS" sceneMemberID="viewController">
+                    <window key="window" title="Tender - Documents" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="tender" animationBehavior="default" tabbingIdentifier="sortWindow" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="contentRect" x="196" y="240" width="300" height="500"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+                        <value key="minSize" type="size" width="300" height="500"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="aKx-gd-zcF"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
@@ -674,20 +407,719 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="75" y="340"/>
         </scene>
-        <!--View Controller-->
+        <!--Window Controller-->
+        <scene sceneID="HHk-8Y-Kou">
+            <objects>
+                <windowController storyboardIdentifier="FullReview" id="yrk-Yd-hJh" sceneMemberID="viewController">
+                    <window key="window" title="FullReview" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="ffe-Ws-Fh9">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+                        <connections>
+                            <outlet property="delegate" destination="yrk-Yd-hJh" id="oj6-BV-JxU"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="kkf-J2-fRL" kind="relationship" relationship="window.shadowedContentViewController" id="adW-td-NgJ"/>
+                    </connections>
+                </windowController>
+                <customObject id="wsK-4S-tIn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="315"/>
+        </scene>
+        <!--Review View Controller-->
+        <scene sceneID="gJk-M6-WvO">
+            <objects>
+                <viewController id="kkf-J2-fRL" customClass="ReviewViewController" customModule="Tender" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="LuW-W5-mvq">
+                        <rect key="frame" x="0.0" y="0.0" width="695" height="555"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hRx-rO-0nA">
+                                <rect key="frame" x="20" y="61" width="308" height="380"/>
+                                <clipView key="contentView" id="SHN-NP-Ugo">
+                                    <rect key="frame" x="1" y="0.0" width="306" height="379"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="x3p-5B-Ycf" viewBased="YES" id="s2L-3k-hAu">
+                                            <rect key="frame" x="0.0" y="0.0" width="306" height="356"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="" width="149" minWidth="40" maxWidth="1000" id="PcV-4A-nfw">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="File">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="1Nl-ew-7a3">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="sTg-nr-pIr">
+                                                            <rect key="frame" x="1" y="1" width="149" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lhH-mh-dfa">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="149" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Bkx-3H-zkd">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="lhH-mh-dfa" id="6UW-by-QVY"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="" width="151" minWidth="40" maxWidth="1000" id="rxS-r1-ZVG">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Size">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="Fgh-ln-s6n">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="9He-xj-bbL">
+                                                            <rect key="frame" x="153" y="1" width="151" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bjm-1F-53u">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="eLV-bI-Qxs">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="bjm-1F-53u" id="g6n-TJ-Mfw"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="Tni-nl-r6h">
+                                    <rect key="frame" x="1" y="363" width="306" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fZl-RX-DyV">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="x3p-5B-Ycf">
+                                    <rect key="frame" x="0.0" y="0.0" width="306" height="23"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="42" horizontalPageScroll="10" verticalLineScroll="42" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdx-8m-YAc">
+                                <rect key="frame" x="368" y="61" width="307" height="380"/>
+                                <clipView key="contentView" id="XaM-na-xX2">
+                                    <rect key="frame" x="1" y="0.0" width="305" height="379"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="40" rowSizeStyle="automatic" headerView="qhR-vj-2b3" viewBased="YES" id="qG8-GM-m4c">
+                                            <rect key="frame" x="0.0" y="0.0" width="305" height="356"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="" width="107" minWidth="40" maxWidth="1000" id="QAS-xc-zQz">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="File">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="qST-dG-0me">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="Iiw-D8-Zjo">
+                                                            <rect key="frame" x="1" y="1" width="107" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5iB-Va-PEm">
+                                                                    <rect key="frame" x="0.0" y="23" width="107" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="xsc-Ww-88P">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="5iB-Va-PEm" id="tsp-xM-M0u"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="" width="192" minWidth="40" maxWidth="1000" id="pHH-jq-1Ll">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Size">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="1lD-e9-Aip">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView id="wC5-JL-F4A">
+                                                            <rect key="frame" x="111" y="1" width="192" height="40"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dxY-n6-cea">
+                                                                    <rect key="frame" x="0.0" y="23" width="192" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="g2C-0A-iDJ">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="dxY-n6-cea" id="PoJ-jh-FoD"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="KmU-jb-yBz">
+                                    <rect key="frame" x="1" y="363" width="305" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="IMd-e5-RVJ">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <tableHeaderView key="headerView" id="qhR-vj-2b3">
+                                    <rect key="frame" x="0.0" y="0.0" width="305" height="23"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableHeaderView>
+                            </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UUA-9R-sSE">
+                                <rect key="frame" x="18" y="468" width="659" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="x Files totalling y gb" id="hUQ-Jn-fVQ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xfC-WP-aTJ">
+                                <rect key="frame" x="18" y="443" width="312" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Files to keep" id="8Dc-0K-tSL">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yLw-cx-V7v">
+                                <rect key="frame" x="366" y="443" width="311" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Files to delete" id="sBd-h0-K4E">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kWB-3P-Jy2">
+                                <rect key="frame" x="18" y="493" width="659" height="42"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Review" id="N4I-fl-m6K">
+                                    <font key="font" size="30" name="ArialRoundedMTBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Pyg-fh-hVi">
+                                <rect key="frame" x="257" y="13" width="182" height="32"/>
+                                <buttonCell key="cell" type="push" title="Perminantly delete files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6wP-hT-9m5">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="kWB-3P-Jy2" secondAttribute="trailing" constant="20" id="0YV-gd-Kqb"/>
+                            <constraint firstItem="fdx-8m-YAc" firstAttribute="trailing" secondItem="yLw-cx-V7v" secondAttribute="trailing" id="2o9-vV-ArD"/>
+                            <constraint firstItem="UUA-9R-sSE" firstAttribute="leading" secondItem="LuW-W5-mvq" secondAttribute="leading" constant="20" id="5GY-cg-Omm"/>
+                            <constraint firstItem="kWB-3P-Jy2" firstAttribute="top" secondItem="LuW-W5-mvq" secondAttribute="top" constant="20" id="9Lk-Ix-ESS"/>
+                            <constraint firstItem="xfC-WP-aTJ" firstAttribute="top" secondItem="UUA-9R-sSE" secondAttribute="bottom" constant="8" id="9dO-sn-acZ"/>
+                            <constraint firstItem="Pyg-fh-hVi" firstAttribute="centerX" secondItem="LuW-W5-mvq" secondAttribute="centerX" id="HXU-PF-EIs"/>
+                            <constraint firstItem="yLw-cx-V7v" firstAttribute="width" secondItem="fdx-8m-YAc" secondAttribute="width" id="MXY-wH-c9t"/>
+                            <constraint firstItem="fdx-8m-YAc" firstAttribute="height" secondItem="hRx-rO-0nA" secondAttribute="height" id="Sbc-zA-k8d"/>
+                            <constraint firstItem="UUA-9R-sSE" firstAttribute="top" secondItem="kWB-3P-Jy2" secondAttribute="bottom" constant="8" id="T5b-9b-Z9g"/>
+                            <constraint firstItem="xfC-WP-aTJ" firstAttribute="width" secondItem="hRx-rO-0nA" secondAttribute="width" id="XKb-FE-TMe"/>
+                            <constraint firstItem="yLw-cx-V7v" firstAttribute="top" secondItem="xfC-WP-aTJ" secondAttribute="top" id="ZYy-53-qn8"/>
+                            <constraint firstItem="Pyg-fh-hVi" firstAttribute="top" secondItem="hRx-rO-0nA" secondAttribute="bottom" constant="20" id="aN6-wV-hks"/>
+                            <constraint firstAttribute="trailing" secondItem="UUA-9R-sSE" secondAttribute="trailing" constant="20" id="bT1-Sq-hqd"/>
+                            <constraint firstItem="xfC-WP-aTJ" firstAttribute="leading" secondItem="LuW-W5-mvq" secondAttribute="leading" constant="20" id="i7S-Hh-wVR"/>
+                            <constraint firstItem="hRx-rO-0nA" firstAttribute="top" secondItem="xfC-WP-aTJ" secondAttribute="bottom" constant="2" id="k2i-h5-RhS"/>
+                            <constraint firstItem="yLw-cx-V7v" firstAttribute="leading" secondItem="xfC-WP-aTJ" secondAttribute="trailing" constant="40" id="kpw-dA-plL"/>
+                            <constraint firstItem="yLw-cx-V7v" firstAttribute="width" secondItem="xfC-WP-aTJ" secondAttribute="width" id="lHs-2B-jcO"/>
+                            <constraint firstItem="kWB-3P-Jy2" firstAttribute="leading" secondItem="LuW-W5-mvq" secondAttribute="leading" constant="20" id="r2h-Hf-Lz4"/>
+                            <constraint firstAttribute="trailing" secondItem="yLw-cx-V7v" secondAttribute="trailing" constant="20" id="sOj-1E-EB6"/>
+                            <constraint firstItem="hRx-rO-0nA" firstAttribute="leading" secondItem="xfC-WP-aTJ" secondAttribute="leading" id="tHB-2d-7pR"/>
+                            <constraint firstItem="fdx-8m-YAc" firstAttribute="top" secondItem="yLw-cx-V7v" secondAttribute="bottom" constant="2" id="wcK-mt-dGg"/>
+                            <constraint firstAttribute="bottom" secondItem="Pyg-fh-hVi" secondAttribute="bottom" constant="20" id="xC2-WF-CRa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="acceptTable" destination="s2L-3k-hAu" id="mhc-VU-iW2"/>
+                        <outlet property="rejectTable" destination="qG8-GM-m4c" id="9gz-vy-slg"/>
+                        <outlet property="table" destination="s2L-3k-hAu" id="Q3W-qX-HXv"/>
+                    </connections>
+                </viewController>
+                <customObject id="C8u-ip-Ns0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.5" y="907.5"/>
+        </scene>
+        <!--Tender-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Tender" showSeguePresentationStyle="single" id="XfG-lQ-9wD" customClass="SortViewController" customModule="Tender" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <rect key="frame" x="0.0" y="0.0" width="370" height="550"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <box autoresizesSubviews="NO" boxType="custom" borderType="line" borderWidth="0.0" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="QpF-3Z-Mh6">
+                                <rect key="frame" x="0.0" y="0.0" width="370" height="550"/>
+                                <view key="contentView" id="gQJ-rh-gkO">
+                                    <rect key="frame" x="0.0" y="0.0" width="370" height="550"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <box horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" boxType="custom" borderType="line" borderWidth="0.0" cornerRadius="20" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="zHU-qa-5Nc">
+                                            <rect key="frame" x="5" y="236" width="360" height="309"/>
+                                            <view key="contentView" id="Cyr-L2-XcI">
+                                                <rect key="frame" x="0.0" y="0.0" width="360" height="309"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="e2o-Vt-4nK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="360" height="309"/>
+                                                        <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="HWv-4W-Qfr"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="e2o-Vt-4nK" secondAttribute="trailing" id="W0b-Fb-rOY"/>
+                                                    <constraint firstAttribute="bottom" secondItem="e2o-Vt-4nK" secondAttribute="bottom" id="aMm-aZ-IeS"/>
+                                                    <constraint firstItem="e2o-Vt-4nK" firstAttribute="top" secondItem="Cyr-L2-XcI" secondAttribute="top" id="dYq-5F-BMZ"/>
+                                                    <constraint firstItem="e2o-Vt-4nK" firstAttribute="leading" secondItem="Cyr-L2-XcI" secondAttribute="leading" id="ltm-8R-7mH"/>
+                                                </constraints>
+                                            </view>
+                                            <color key="borderColor" white="0.0" alpha="0.15956549657534241" colorSpace="calibratedWhite"/>
+                                            <color key="fillColor" red="0.0" green="0.0" blue="0.0" alpha="0.076011344178082196" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </box>
+                                        <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v9B-J0-cjk">
+                                            <rect key="frame" x="5" y="205" width="295" height="27"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" state="on" focusRingType="none" title="filename.txt" drawsBackground="YES" id="N3m-7d-NY4">
+                                                <font key="font" size="19" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onRename:" target="XfG-lQ-9wD" id="XR1-le-5EO"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x06-Ug-BCE">
+                                            <rect key="frame" x="302" y="205" width="65" height="19"/>
+                                            <textFieldCell key="cell" controlSize="mini" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="999 bytes" id="rRk-St-LtU">
+                                                <font key="font" size="13" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Ae6-CK-CSw">
+                                            <rect key="frame" x="0.0" y="202" width="370" height="5"/>
+                                        </box>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GiK-Cs-KCF">
+                                            <rect key="frame" x="18" y="0.0" width="334" height="14"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="14" id="q1S-Wa-ZLJ"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0 rejected 0 accepted 0 remaining" id="7Lg-1B-lnl">
+                                                <font key="font" size="9" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YGw-9V-YCd">
+                                            <rect key="frame" x="-2" y="178" width="84" height="19"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="byz-US-2Pj"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="created" id="apk-rF-InA">
+                                                <font key="font" size="13" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xe4-7F-DHj">
+                                            <rect key="frame" x="103" y="178" width="83" height="19"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="May 21 2017" id="X6c-Fj-llB">
+                                                <font key="font" size="13" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gPX-GC-Aku">
+                                            <rect key="frame" x="23" y="152" width="59" height="19"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="modified" id="DcB-JA-pGx">
+                                                <font key="font" size="13" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yow-3O-hZw">
+                                            <rect key="frame" x="103" y="152" width="83" height="19"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="May 21 2017" id="plo-Yn-wVq">
+                                                <font key="font" size="13" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2fZ-tm-8ks">
+                                            <rect key="frame" x="50" y="126" width="32" height="19"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="tags" id="G1E-gm-hsQ">
+                                                <font key="font" size="13" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <tokenField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lei-Us-leu">
+                                            <rect key="frame" x="105" y="125" width="245" height="22"/>
+                                            <tokenFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" focusRingType="none" alignment="left" allowsEditingTextAttributes="YES" bezelStyle="round" id="WVR-U2-dhi">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </tokenFieldCell>
+                                            <connections>
+                                                <action selector="onEditTags:" target="XfG-lQ-9wD" id="lJR-Yh-NQo"/>
+                                            </connections>
+                                        </tokenField>
+                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tye-aT-Rfb">
+                                            <rect key="frame" x="102" y="96" width="251" height="26"/>
+                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" pullsDown="YES" id="tmA-8W-vfN">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" id="t9O-ZE-I11">
+                                                    <items>
+                                                        <menuItem state="on" hidden="YES" id="oSi-62-SxH">
+                                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                                        </menuItem>
+                                                        <menuItem title="Open" id="Hx6-ft-h2U">
+                                                            <connections>
+                                                                <action selector="onOpen:" target="XfG-lQ-9wD" id="CVe-Nm-WZu"/>
+                                                            </connections>
+                                                        </menuItem>
+                                                        <menuItem title="Reveal in Finder" id="PUy-y6-KZj">
+                                                            <connections>
+                                                                <action selector="onOpenInFinder:" target="XfG-lQ-9wD" id="jxC-Oc-Pna"/>
+                                                            </connections>
+                                                        </menuItem>
+                                                        <menuItem title="Reject all of this type" id="8BZ-dC-Hq3">
+                                                            <connections>
+                                                                <action selector="onRejectAll:" target="XfG-lQ-9wD" id="St6-wO-J0N"/>
+                                                            </connections>
+                                                        </menuItem>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
+                                        </popUpButton>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gfy-Af-peE">
+                                            <rect key="frame" x="31" y="100" width="51" height="19"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="actions" id="ebN-gk-6NT">
+                                                <font key="font" size="13" name="ArialRoundedMTBold"/>
+                                                <color key="textColor" white="0.0" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <box boxType="custom" borderType="bezel" borderWidth="0.0" cornerRadius="10" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="M7b-TC-Lic">
+                                            <rect key="frame" x="45" y="39" width="280" height="50"/>
+                                            <view key="contentView" id="WRg-tI-oYY">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="50"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="sLj-eG-1by">
+                                                        <rect key="frame" x="0.0" y="3" width="70" height="44"/>
+                                                        <buttonCell key="cell" type="square" alternateTitle="Back" bezelStyle="shadowlessSquare" image="back" imagePosition="right" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="l4T-ca-vYS">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="onBack:" target="XfG-lQ-9wD" id="r18-gO-90q"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="YaX-lr-1xp">
+                                                        <rect key="frame" x="140" y="0.0" width="70" height="50"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="heart" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="6He-Mx-tpZ">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <string key="keyEquivalent"></string>
+                                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="onKeep:" target="XfG-lQ-9wD" id="I47-tE-ajI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="JJp-Kp-Nuj">
+                                                        <rect key="frame" x="210" y="3" width="70" height="44"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="move" imagePosition="left" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="lrs-LU-Oho">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="onMove:" target="XfG-lQ-9wD" id="TmT-bv-mNb"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="zHI-Ih-JcR">
+                                                        <rect key="frame" x="70" y="0.0" width="70" height="50"/>
+                                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="x" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="3rl-oz-zeh">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                            <string key="keyEquivalent"></string>
+                                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="onReject:" target="XfG-lQ-9wD" id="pxX-eA-NKf"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="JJp-Kp-Nuj" firstAttribute="leading" secondItem="YaX-lr-1xp" secondAttribute="trailing" id="6Z1-Ab-Gyn"/>
+                                                    <constraint firstItem="zHI-Ih-JcR" firstAttribute="centerY" secondItem="WRg-tI-oYY" secondAttribute="centerY" id="6oL-gu-PVx"/>
+                                                    <constraint firstItem="JJp-Kp-Nuj" firstAttribute="top" secondItem="WRg-tI-oYY" secondAttribute="top" constant="3" id="F8Y-EA-9DA"/>
+                                                    <constraint firstItem="JJp-Kp-Nuj" firstAttribute="centerY" secondItem="WRg-tI-oYY" secondAttribute="centerY" id="Jza-JP-vZs"/>
+                                                    <constraint firstItem="YaX-lr-1xp" firstAttribute="leading" secondItem="zHI-Ih-JcR" secondAttribute="trailing" id="NwO-wx-Gdp"/>
+                                                    <constraint firstAttribute="trailing" secondItem="JJp-Kp-Nuj" secondAttribute="trailing" id="OyY-y1-qI2"/>
+                                                    <constraint firstItem="zHI-Ih-JcR" firstAttribute="leading" secondItem="sLj-eG-1by" secondAttribute="trailing" id="WF9-1j-jSv"/>
+                                                    <constraint firstItem="sLj-eG-1by" firstAttribute="centerY" secondItem="WRg-tI-oYY" secondAttribute="centerY" id="ZP6-28-m6Y"/>
+                                                    <constraint firstItem="YaX-lr-1xp" firstAttribute="centerY" secondItem="WRg-tI-oYY" secondAttribute="centerY" id="gHs-mn-aAg"/>
+                                                    <constraint firstItem="YaX-lr-1xp" firstAttribute="width" secondItem="sLj-eG-1by" secondAttribute="width" id="mE5-QM-yvD"/>
+                                                    <constraint firstItem="JJp-Kp-Nuj" firstAttribute="width" secondItem="sLj-eG-1by" secondAttribute="width" id="mkO-sR-ZEn"/>
+                                                    <constraint firstItem="sLj-eG-1by" firstAttribute="leading" secondItem="WRg-tI-oYY" secondAttribute="leading" id="sUQ-Wm-DLD"/>
+                                                    <constraint firstItem="sLj-eG-1by" firstAttribute="top" secondItem="WRg-tI-oYY" secondAttribute="top" constant="3" id="sxj-Jy-Pmx"/>
+                                                    <constraint firstItem="zHI-Ih-JcR" firstAttribute="top" secondItem="WRg-tI-oYY" secondAttribute="top" id="wO0-NO-d96"/>
+                                                    <constraint firstItem="YaX-lr-1xp" firstAttribute="top" secondItem="WRg-tI-oYY" secondAttribute="top" id="zop-Dy-EEO"/>
+                                                    <constraint firstItem="zHI-Ih-JcR" firstAttribute="width" secondItem="sLj-eG-1by" secondAttribute="width" id="zxo-Ce-CaL"/>
+                                                </constraints>
+                                            </view>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="Lgp-9A-hp0"/>
+                                                <constraint firstAttribute="width" constant="280" id="qTw-ds-1y8"/>
+                                            </constraints>
+                                            <color key="borderColor" white="0.0" alpha="0.10000000000000001" colorSpace="calibratedWhite"/>
+                                        </box>
+                                        <progressIndicator wantsLayer="YES" horizontalHuggingPriority="252" verticalHuggingPriority="252" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="SbL-Dm-YCc">
+                                            <rect key="frame" x="20" y="13" width="330" height="20"/>
+                                        </progressIndicator>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="M7b-TC-Lic" firstAttribute="top" secondItem="tye-aT-Rfb" secondAttribute="bottom" constant="10" id="2Hy-pf-7Mm"/>
+                                        <constraint firstItem="2fZ-tm-8ks" firstAttribute="top" secondItem="gPX-GC-Aku" secondAttribute="bottom" constant="7" id="2VY-hP-33g"/>
+                                        <constraint firstItem="zHU-qa-5Nc" firstAttribute="top" secondItem="gQJ-rh-gkO" secondAttribute="top" constant="5" id="8Qk-Ac-tDL"/>
+                                        <constraint firstItem="zHU-qa-5Nc" firstAttribute="leading" secondItem="gQJ-rh-gkO" secondAttribute="leading" constant="5" id="8bv-kL-28m"/>
+                                        <constraint firstAttribute="bottom" secondItem="GiK-Cs-KCF" secondAttribute="bottom" id="Cft-Ch-kdU"/>
+                                        <constraint firstItem="YGw-9V-YCd" firstAttribute="leading" secondItem="gQJ-rh-gkO" secondAttribute="leading" id="F9L-RP-XyW"/>
+                                        <constraint firstItem="gPX-GC-Aku" firstAttribute="top" secondItem="YGw-9V-YCd" secondAttribute="bottom" constant="7" id="HoF-AA-pj3"/>
+                                        <constraint firstAttribute="trailing" secondItem="SbL-Dm-YCc" secondAttribute="trailing" constant="20" id="Ile-Yo-tXE"/>
+                                        <constraint firstItem="M7b-TC-Lic" firstAttribute="centerX" secondItem="gQJ-rh-gkO" secondAttribute="centerX" id="JTU-bL-muM"/>
+                                        <constraint firstItem="v9B-J0-cjk" firstAttribute="leading" secondItem="gQJ-rh-gkO" secondAttribute="leading" constant="5" id="Jeh-fb-vK9"/>
+                                        <constraint firstItem="gPX-GC-Aku" firstAttribute="trailing" secondItem="YGw-9V-YCd" secondAttribute="trailing" id="KHJ-GY-4L4"/>
+                                        <constraint firstItem="xe4-7F-DHj" firstAttribute="leading" secondItem="YGw-9V-YCd" secondAttribute="trailing" constant="25" id="L3n-ZI-rpc"/>
+                                        <constraint firstItem="Gfy-Af-peE" firstAttribute="top" secondItem="2fZ-tm-8ks" secondAttribute="bottom" constant="7" id="NWY-NI-SKf"/>
+                                        <constraint firstItem="GiK-Cs-KCF" firstAttribute="top" secondItem="SbL-Dm-YCc" secondAttribute="bottom" id="Nhq-38-jqS"/>
+                                        <constraint firstItem="yow-3O-hZw" firstAttribute="centerY" secondItem="gPX-GC-Aku" secondAttribute="centerY" id="Oqm-9X-Kw9"/>
+                                        <constraint firstItem="yow-3O-hZw" firstAttribute="leading" secondItem="gPX-GC-Aku" secondAttribute="trailing" constant="25" id="Ren-ro-FIg"/>
+                                        <constraint firstItem="Gfy-Af-peE" firstAttribute="trailing" secondItem="YGw-9V-YCd" secondAttribute="trailing" id="Rux-Za-3KQ"/>
+                                        <constraint firstItem="Ae6-CK-CSw" firstAttribute="leading" secondItem="gQJ-rh-gkO" secondAttribute="leading" id="Uig-uC-vfX"/>
+                                        <constraint firstItem="Ae6-CK-CSw" firstAttribute="top" secondItem="x06-Ug-BCE" secondAttribute="bottom" id="WoQ-qa-J6F"/>
+                                        <constraint firstAttribute="trailing" secondItem="v9B-J0-cjk" secondAttribute="trailing" constant="70" id="YHg-wR-dv9"/>
+                                        <constraint firstItem="2fZ-tm-8ks" firstAttribute="trailing" secondItem="YGw-9V-YCd" secondAttribute="trailing" id="akM-ip-Hyr"/>
+                                        <constraint firstAttribute="trailing" secondItem="x06-Ug-BCE" secondAttribute="trailing" constant="5" id="c4u-MZ-3jV"/>
+                                        <constraint firstAttribute="trailing" secondItem="lei-Us-leu" secondAttribute="trailing" constant="20" id="dEV-Jb-6nJ"/>
+                                        <constraint firstItem="Ae6-CK-CSw" firstAttribute="top" secondItem="v9B-J0-cjk" secondAttribute="bottom" id="dV1-YG-dau"/>
+                                        <constraint firstItem="GiK-Cs-KCF" firstAttribute="leading" secondItem="gQJ-rh-gkO" secondAttribute="leading" constant="20" id="dys-3h-PcS"/>
+                                        <constraint firstItem="YGw-9V-YCd" firstAttribute="top" secondItem="Ae6-CK-CSw" secondAttribute="bottom" constant="7" id="erT-nr-6KE"/>
+                                        <constraint firstAttribute="trailing" secondItem="tye-aT-Rfb" secondAttribute="trailing" constant="20" id="ftT-V4-n7k"/>
+                                        <constraint firstAttribute="trailing" secondItem="Ae6-CK-CSw" secondAttribute="trailing" id="gTZ-tY-5r9"/>
+                                        <constraint firstItem="tye-aT-Rfb" firstAttribute="leading" secondItem="Gfy-Af-peE" secondAttribute="trailing" constant="25" id="gnX-B4-Ag0"/>
+                                        <constraint firstAttribute="trailing" secondItem="zHU-qa-5Nc" secondAttribute="trailing" constant="5" id="gtR-f3-pGG"/>
+                                        <constraint firstItem="xe4-7F-DHj" firstAttribute="centerY" secondItem="YGw-9V-YCd" secondAttribute="centerY" id="jym-lC-apH"/>
+                                        <constraint firstItem="lei-Us-leu" firstAttribute="leading" secondItem="2fZ-tm-8ks" secondAttribute="trailing" constant="25" id="kF9-wB-vdw"/>
+                                        <constraint firstItem="SbL-Dm-YCc" firstAttribute="top" secondItem="M7b-TC-Lic" secondAttribute="bottom" constant="7" id="lO5-Ap-et9"/>
+                                        <constraint firstItem="tye-aT-Rfb" firstAttribute="centerY" secondItem="Gfy-Af-peE" secondAttribute="centerY" id="ri0-UX-CiX"/>
+                                        <constraint firstItem="v9B-J0-cjk" firstAttribute="top" secondItem="zHU-qa-5Nc" secondAttribute="bottom" constant="4" id="taf-Aa-Sf5"/>
+                                        <constraint firstAttribute="trailing" secondItem="GiK-Cs-KCF" secondAttribute="trailing" constant="20" id="vyh-Hf-tbl"/>
+                                        <constraint firstItem="SbL-Dm-YCc" firstAttribute="leading" secondItem="gQJ-rh-gkO" secondAttribute="leading" constant="20" id="wgH-5M-5jc"/>
+                                        <constraint firstItem="lei-Us-leu" firstAttribute="centerY" secondItem="2fZ-tm-8ks" secondAttribute="centerY" id="ywo-y0-n2D"/>
+                                    </constraints>
+                                </view>
+                                <color key="fillColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </box>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="QpF-3Z-Mh6" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="CMN-TD-BrP"/>
+                            <constraint firstItem="QpF-3Z-Mh6" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="mF4-bm-GZO"/>
+                            <constraint firstAttribute="bottom" secondItem="QpF-3Z-Mh6" secondAttribute="bottom" id="ogM-CP-128"/>
+                            <constraint firstAttribute="trailing" secondItem="QpF-3Z-Mh6" secondAttribute="trailing" id="ojN-hg-TNr"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createdField" destination="xe4-7F-DHj" id="8ni-1e-Uvf"/>
+                        <outlet property="editedField" destination="yow-3O-hZw" id="SAA-kM-oJn"/>
+                        <outlet property="filenameField" destination="v9B-J0-cjk" id="C3O-7V-FBi"/>
+                        <outlet property="filesizeField" destination="x06-Ug-BCE" id="ftp-cY-uQ2"/>
+                        <outlet property="onKeep" destination="YaX-lr-1xp" id="c9r-kZ-n4q"/>
+                        <outlet property="onReject" destination="YaX-lr-1xp" id="Qqd-uS-GaA"/>
+                        <outlet property="onRename" destination="v9B-J0-cjk" id="NKD-fp-pmH"/>
+                        <outlet property="preview" destination="e2o-Vt-4nK" id="uLg-OW-uSM"/>
+                        <outlet property="progressIndicator" destination="SbL-Dm-YCc" id="130-gO-JIf"/>
+                        <outlet property="statusLabel" destination="GiK-Cs-KCF" id="5jh-JB-moO"/>
+                        <outlet property="tagField" destination="lei-Us-leu" id="mUQ-UX-0gb"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="11" y="1040"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="aOl-Hf-Iat">
+            <objects>
+                <customObject id="cbd-0I-hRl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <windowController storyboardIdentifier="review" id="JUI-7l-B9a" sceneMemberID="viewController">
+                    <window key="window" title="Review" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="OWS-zH-SMX">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="878"/>
+                        <connections>
+                            <outlet property="delegate" destination="JUI-7l-B9a" id="rsc-Ue-i5b"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="aE5-ZP-wSl" kind="relationship" relationship="window.shadowedContentViewController" id="kfP-OA-Y50"/>
+                    </connections>
+                </windowController>
+            </objects>
+            <point key="canvasLocation" x="506" y="1433"/>
+        </scene>
+        <!--Review-->
+        <scene sceneID="6Vm-IC-lOT">
+            <objects>
+                <viewController title="Review" showSeguePresentationStyle="single" id="aE5-ZP-wSl" customClass="ReviewViewController" customModule="Tender" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="o6b-Al-Fcz">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="202"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9pL-tz-nj5">
+                                <rect key="frame" x="18" y="155" width="444" height="27"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="0 files totalling 0kb are ready to be deleted" id="hrl-0N-vQF">
+                                    <font key="font" size="19" name="ArialRoundedMTBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-Y4-R6W">
+                                <rect key="frame" x="38" y="75" width="404" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="36" id="BS0-1g-WND"/>
+                                    <constraint firstAttribute="width" constant="400" id="fhn-lN-xjo"/>
+                                </constraints>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" id="y7c-Xk-RKv">
+                                    <font key="font" size="12" name="ArialRoundedMTBold"/>
+                                    <string key="title">Would you like to delete them immediately (cannot undo) or move them to a new folder and have another look?
+
+Tender will exit when finished</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="klq-rC-5PM">
+                                <rect key="frame" x="34" y="13" width="197" height="32"/>
+                                <buttonCell key="cell" type="push" title="Delete rejected files" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DUK-OJ-Nb6">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="deleteRejected:" target="aE5-ZP-wSl" id="2Os-9W-ECa"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="X2O-bY-KbB">
+                                <rect key="frame" x="249" y="13" width="197" height="32"/>
+                                <buttonCell key="cell" type="push" title="View files in new folder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8DO-AT-K7T">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="moveRejected:" target="aE5-ZP-wSl" id="6aJ-Jc-fev"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="X2O-bY-KbB" firstAttribute="width" secondItem="klq-rC-5PM" secondAttribute="width" id="7xx-TV-KHC"/>
+                            <constraint firstItem="X2O-bY-KbB" firstAttribute="top" secondItem="Wgk-Y4-R6W" secondAttribute="bottom" constant="34" id="Fq9-TM-CAC"/>
+                            <constraint firstAttribute="trailing" secondItem="X2O-bY-KbB" secondAttribute="trailing" constant="40" id="L99-md-s3q"/>
+                            <constraint firstAttribute="trailing" secondItem="9pL-tz-nj5" secondAttribute="trailing" constant="20" id="PEM-R0-TKg"/>
+                            <constraint firstItem="klq-rC-5PM" firstAttribute="leading" secondItem="o6b-Al-Fcz" secondAttribute="leading" constant="40" id="bHw-Sw-9Ez"/>
+                            <constraint firstItem="Wgk-Y4-R6W" firstAttribute="leading" secondItem="o6b-Al-Fcz" secondAttribute="leading" constant="40" id="bPv-m8-um7"/>
+                            <constraint firstAttribute="trailing" secondItem="Wgk-Y4-R6W" secondAttribute="trailing" constant="40" id="d9h-9J-92B"/>
+                            <constraint firstItem="9pL-tz-nj5" firstAttribute="top" secondItem="o6b-Al-Fcz" secondAttribute="top" constant="20" id="hzt-Gf-iY1"/>
+                            <constraint firstItem="Wgk-Y4-R6W" firstAttribute="top" secondItem="9pL-tz-nj5" secondAttribute="bottom" constant="8" id="klF-dZ-7nY"/>
+                            <constraint firstItem="X2O-bY-KbB" firstAttribute="leading" secondItem="klq-rC-5PM" secondAttribute="trailing" constant="30" id="pjk-c9-JJP"/>
+                            <constraint firstItem="9pL-tz-nj5" firstAttribute="leading" secondItem="o6b-Al-Fcz" secondAttribute="leading" constant="20" id="tKp-dI-0e4"/>
+                            <constraint firstItem="klq-rC-5PM" firstAttribute="top" secondItem="Wgk-Y4-R6W" secondAttribute="bottom" constant="34" id="wXA-Zm-xsP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="titleField" destination="9pL-tz-nj5" id="7u6-2h-xEK"/>
+                    </connections>
+                </viewController>
+                <customObject id="D1Z-ID-5Me" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="1882"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="256" height="256"/>
+        <image name="heart" width="256" height="256"/>
+        <image name="move" width="256" height="256"/>
+        <image name="x" width="256" height="256"/>
+    </resources>
 </document>
