@@ -728,7 +728,7 @@ DQ
                                                 <rect key="frame" x="0.0" y="0.0" width="360" height="309"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="e2o-Vt-4nK">
+                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="e2o-Vt-4nK" customClass="TenderImageView" customModule="Tender" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="360" height="309"/>
                                                         <imageCell key="cell" controlSize="mini" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="HWv-4W-Qfr"/>
                                                     </imageView>
@@ -751,7 +751,7 @@ DQ
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onRename:" target="XfG-lQ-9wD" id="XR1-le-5EO"/>
+                                                <action selector="onRename:" target="XfG-lQ-9wD" id="PEz-OK-bCD"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="x06-Ug-BCE">
@@ -827,7 +827,7 @@ DQ
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </tokenFieldCell>
                                             <connections>
-                                                <action selector="onEditTags:" target="XfG-lQ-9wD" id="lJR-Yh-NQo"/>
+                                                <action selector="onEditTags:" target="XfG-lQ-9wD" id="xjh-cx-jYg"/>
                                             </connections>
                                         </tokenField>
                                         <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tye-aT-Rfb">
@@ -842,17 +842,17 @@ DQ
                                                         </menuItem>
                                                         <menuItem title="Open" id="Hx6-ft-h2U">
                                                             <connections>
-                                                                <action selector="onOpen:" target="XfG-lQ-9wD" id="CVe-Nm-WZu"/>
+                                                                <action selector="onOpen:" target="XfG-lQ-9wD" id="qtQ-lC-uqM"/>
                                                             </connections>
                                                         </menuItem>
                                                         <menuItem title="Reveal in Finder" id="PUy-y6-KZj">
                                                             <connections>
-                                                                <action selector="onOpenInFinder:" target="XfG-lQ-9wD" id="jxC-Oc-Pna"/>
+                                                                <action selector="onOpenInFinder:" target="XfG-lQ-9wD" id="DpN-Z9-41W"/>
                                                             </connections>
                                                         </menuItem>
                                                         <menuItem title="Reject all of this type" id="8BZ-dC-Hq3">
                                                             <connections>
-                                                                <action selector="onRejectAll:" target="XfG-lQ-9wD" id="St6-wO-J0N"/>
+                                                                <action selector="onRejectAll:" target="XfG-lQ-9wD" id="uJS-9D-PGf"/>
                                                             </connections>
                                                         </menuItem>
                                                     </items>
@@ -880,7 +880,7 @@ DQ
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="onBack:" target="XfG-lQ-9wD" id="r18-gO-90q"/>
+                                                            <action selector="onBack:" target="XfG-lQ-9wD" id="H2K-iI-7NB"/>
                                                         </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="YaX-lr-1xp">
@@ -892,7 +892,7 @@ DQ
                                                             <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="onKeep:" target="XfG-lQ-9wD" id="I47-tE-ajI"/>
+                                                            <action selector="onAccept:" target="XfG-lQ-9wD" id="I47-tE-ajI"/>
                                                         </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="JJp-Kp-Nuj">
@@ -902,7 +902,7 @@ DQ
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="onMove:" target="XfG-lQ-9wD" id="TmT-bv-mNb"/>
+                                                            <action selector="onMove:" target="XfG-lQ-9wD" id="3V0-e3-8xG"/>
                                                         </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="zHI-Ih-JcR">
@@ -914,7 +914,7 @@ DQ
                                                             <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <action selector="onReject:" target="XfG-lQ-9wD" id="pxX-eA-NKf"/>
+                                                            <action selector="onReject:" target="XfG-lQ-9wD" id="PsZ-lC-1b0"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

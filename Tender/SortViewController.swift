@@ -16,9 +16,9 @@ class SortViewController: NSViewController, NSWindowDelegate {
   let preloadCount = 16;
   var preloadedPreviews:Dictionary<URL,NSImage> = [:]
   var previewsBeingLoaded = Set<URL>()
-  var previewSize: CGSize = CGSize(width: 1, height: 1)
+  var previewSize: CGSize!
   
-  @IBOutlet var preview: NSImageView!
+  @IBOutlet var preview: TenderImageView!
   @IBOutlet var filenameField: NSTextField!
   @IBOutlet var filesizeField: NSTextField!
   @IBOutlet var createdField: NSTextField!
@@ -51,7 +51,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   func setState(state: TenderState) {
     previewSize = preview.bounds.size
     self.state = state
-    refresh(reverse:false)
+    refresh(action: .Init)
     preloadedPreviews = [:]
     preloadImages()
   }
@@ -61,6 +61,47 @@ class SortViewController: NSViewController, NSWindowDelegate {
       preloadPreview(file: state.unsorted[i], fast: false)
     }
   }
+  
+  func loadOneMorePreview() {
+    for f in state.unsorted {
+      if(!self.preloadedPreviews.keys.contains(f) && !self.previewsBeingLoaded.contains(f)) {
+        preloadPreview(file: f, fast: false)
+        break
+      }
+    }
+  }
+  
+  func preloadPreview(file: URL, fast: Bool) {
+    if previewsBeingLoaded.contains(file) || preloadedPreviews[file] != nil {
+      return
+    }
+    previewsBeingLoaded.insert(file)
+    let speed:DispatchQoS.QoSClass = (fast ? .userInitiated : .background)
+    DispatchQueue.global(qos: speed).async {
+      let img = self.filePreview(file: file)
+      self.preloadedPreviews[file] = img
+      self.previewsBeingLoaded.remove(file)
+      if(file == self.state.unsorted.first!) {
+        DispatchQueue.main.async {
+          self.preview.replaceImage(image: img)
+        }
+      }
+    }
+  }
+  
+  func filePreview(file: URL)->NSImage {
+    if let ref = QLThumbnailImageCreate(kCFAllocatorDefault, file as CFURL, previewSize, previewOpts) {
+      let bit = NSBitmapImageRep(cgImage:ref.takeRetainedValue())
+      let img = NSImage(size: previewSize as NSSize)
+      img.addRepresentation(bit)
+      return img
+    } else {
+      let img = NSWorkspace().icon(forFile: file.path)
+      img.size = previewSize
+      return img
+    }
+  }
+  
   
   @IBAction func onRename(_ sender: NSTextField) {
     do {
@@ -92,7 +133,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   @IBAction func onReject(_ sender: NSButton) {
     saveChanges()
     next(oldFile: state.reject())
-    refresh(reverse:false)
+    refresh(action: .Reject)
     
     undoManager?.setActionName("reject file")
     undoManager?.registerUndo(withTarget: self, handler: { me in
@@ -102,7 +143,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   
   func undoReject(sender: NSButton) {
     state.undoReject()
-    refresh(reverse:true)
+    refresh(action: .UndoReject)
     
     undoManager?.setActionName("reject file")
     undoManager?.registerUndo(withTarget: self, handler: { me in
@@ -110,24 +151,24 @@ class SortViewController: NSViewController, NSWindowDelegate {
     })
   }
   
-  @IBAction func onKeep(_ sender: NSButton) {
+  @IBAction func onAccept(_ sender: NSButton) {
     saveChanges()
     next(oldFile: state.accept())
-    refresh(reverse:true)
+    refresh(action: .Accept)
     
     undoManager?.setActionName("keep file")
     undoManager?.registerUndo(withTarget: self, handler: { me in
-      me.undoKeep(sender: sender)
+      me.undoAccept(sender: sender)
     })
   }
   
-  func undoKeep(sender: NSButton) {
+  func undoAccept(sender: NSButton) {
     state.undoAccept()
-    refresh(reverse:false)
+    refresh(action: .UndoAccept)
     
     undoManager?.setActionName("keep file")
     undoManager?.registerUndo(withTarget: self, handler: { me in
-      me.onKeep(sender)
+      me.onAccept(sender)
     })
   }
   
@@ -147,7 +188,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
   func onMoveConfirm(to: URL) {
     do {
       try state.move(to: to)
-      refresh(reverse: false)
+      refresh(action: .Move)
     } catch {
       let alert = NSAlert()
       alert.messageText = "File could not be moved to specified location"
@@ -177,7 +218,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
     undoManager?.registerUndo(withTarget: self, handler: { me in
       me.undoRejectAll(sender, numRejected: ofType.count, ext:ext)
     })
-    refresh(reverse: false)
+    refresh(action: .RejectAll)
   }
   
   func undoRejectAll(_ sender: NSMenuItem, numRejected: Int, ext: String) {
@@ -187,52 +228,12 @@ class SortViewController: NSViewController, NSWindowDelegate {
     undoManager?.registerUndo(withTarget: self, handler: { me in
       me.onRejectAll(sender)
     })
-    refresh(reverse: false)
+    refresh(action: .RejectAll)
   }
   
   func next(oldFile: URL) {
     preloadedPreviews[oldFile] = nil
     loadOneMorePreview()
-  }
-  
-  func loadOneMorePreview() {
-    for f in state.unsorted {
-      if(!self.preloadedPreviews.keys.contains(f) && !self.previewsBeingLoaded.contains(f)) {
-        preloadPreview(file: f, fast: false)
-        break
-      }
-    }
-  }
-  
-  func preloadPreview(file: URL, fast: Bool) {
-    if previewsBeingLoaded.contains(file) || preloadedPreviews[file] != nil {
-      return
-    }
-    previewsBeingLoaded.insert(file)
-    let speed:DispatchQoS.QoSClass = (fast ? .userInitiated : .background)
-    DispatchQueue.global(qos: speed).async {
-      let img = self.filePreview(file: file)
-      self.preloadedPreviews[file] = img
-      self.previewsBeingLoaded.remove(file)
-      if(file == self.state.unsorted.first!) {
-        DispatchQueue.main.async {
-          self.preview.transitionWithImage(image: img, reverse:false, notrans:true)
-        }
-      }
-    }
-  }
-  
-  func filePreview(file: URL)->NSImage {
-    if let ref = QLThumbnailImageCreate(kCFAllocatorDefault, file as CFURL, previewSize, previewOpts) {
-      let bit = NSBitmapImageRep(cgImage:ref.takeRetainedValue())
-      let img = NSImage(size: previewSize as NSSize)
-      img.addRepresentation(bit)
-      return img
-    } else {
-      let img = NSWorkspace().icon(forFile: file.path)
-      img.size = previewSize
-      return img
-    }
   }
   
   func rename(file: URL, newName: String)->URL {
@@ -277,7 +278,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
     }
   }
   
-  func refresh(reverse: Bool) {
+  func refresh(action: TenderAction) {
     if(state.unsorted.count == 0) {
       finish()
       return
@@ -297,7 +298,7 @@ class SortViewController: NSViewController, NSWindowDelegate {
       img?.size = preview.bounds.size
     }
     
-    self.preview.transitionWithImage(image: img!, reverse:reverse, notrans: false)
+    self.preview.transition(next: img!, action: action)
     
     let keys: Set<URLResourceKey> = [.tagNamesKey, .creationDateKey, .contentModificationDateKey, .nameKey, .fileSizeKey, .isDirectoryKey]
     
@@ -330,21 +331,5 @@ class SortViewController: NSViewController, NSWindowDelegate {
       progressIndicator.doubleValue = state.pctDone()
       statusLabel.stringValue = "\(state.rejected.count) rejected \(state.accepted.count) accepted \(state.unsorted.count) remaining"
     }
-  }
-}
-
-extension NSImageView {
-  
-  func transitionWithImage(image: NSImage, reverse: Bool, notrans: Bool) {
-    if(!notrans) {
-      let transition = CATransition()
-      transition.duration = 0.25
-      transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-      transition.type = kCATransitionPush
-      transition.subtype = reverse ? kCATransitionFromLeft : kCATransitionFromRight
-      wantsLayer = true
-      layer?.add(transition, forKey: kCATransition)
-    }
-    self.image = image
   }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		940BC836200D307E00FC020F /* TenderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BC835200D307E00FC020F /* TenderImageView.swift */; };
+		940BC838200D3B2100FC020F /* TenderAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940BC837200D3B2100FC020F /* TenderAction.swift */; };
 		942C6FCC1FC239C10054A4CC /* SortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942C6FCB1FC239C10054A4CC /* SortViewController.swift */; };
 		942DEB6D1FDDBC24001E9A90 /* DropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942DEB6C1FDDBC24001E9A90 /* DropView.swift */; };
 		946934071FF3733100B60664 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946934061FF3733100B60664 /* ReviewViewController.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		940BC835200D307E00FC020F /* TenderImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenderImageView.swift; sourceTree = "<group>"; };
+		940BC837200D3B2100FC020F /* TenderAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenderAction.swift; sourceTree = "<group>"; };
 		942C6FCB1FC239C10054A4CC /* SortViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SortViewController.swift; sourceTree = "<group>"; };
 		942DEB6C1FDDBC24001E9A90 /* DropView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropView.swift; sourceTree = "<group>"; };
 		943CDBA41FB8E6E5006116E6 /* Automator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Automator.framework; path = System/Library/Frameworks/Automator.framework; sourceTree = SDKROOT; };
@@ -86,6 +90,8 @@
 				946934061FF3733100B60664 /* ReviewViewController.swift */,
 				949443EA20068CD300318E29 /* SortBy.swift */,
 				942C6FCB1FC239C10054A4CC /* SortViewController.swift */,
+				940BC835200D307E00FC020F /* TenderImageView.swift */,
+				940BC837200D3B2100FC020F /* TenderAction.swift */,
 				9491B44120066FC300D5F2E4 /* TenderState.swift */,
 				948008D11FB3B42B00DFD9CD /* Assets.xcassets */,
 				948008D31FB3B42B00DFD9CD /* Main.storyboard */,
@@ -180,10 +186,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				940BC836200D307E00FC020F /* TenderImageView.swift in Sources */,
 				948008D01FB3B42B00DFD9CD /* InitialViewController.swift in Sources */,
 				9491B44220066FC300D5F2E4 /* TenderState.swift in Sources */,
 				942DEB6D1FDDBC24001E9A90 /* DropView.swift in Sources */,
 				949443ED2006A1E400318E29 /* Extensions.swift in Sources */,
+				940BC838200D3B2100FC020F /* TenderAction.swift in Sources */,
 				946934071FF3733100B60664 /* ReviewViewController.swift in Sources */,
 				948008CE1FB3B42B00DFD9CD /* AppDelegate.swift in Sources */,
 				942C6FCC1FC239C10054A4CC /* SortViewController.swift in Sources */,
